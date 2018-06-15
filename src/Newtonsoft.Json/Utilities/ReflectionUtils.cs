@@ -517,7 +517,7 @@ namespace Newtonsoft.Json.Utilities
                 case MemberTypes.Property:
                     try
                     {
-                        return ((PropertyInfo)member).GetValue(target, null);
+                        return ((PropertyInfo)member).GetGetMethod().Invoke(target, null);
                     }
                     catch (TargetParameterCountException e)
                     {
